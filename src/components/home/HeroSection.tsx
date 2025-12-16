@@ -111,7 +111,7 @@ export const HeroSection = () => {
           {/* Hero Image */}
           <motion.div 
             className="order-1 lg:order-2 relative"
-            style={{ y, opacity }}
+            style={{ y }}
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent rounded-3xl blur-2xl" />

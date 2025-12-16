@@ -65,7 +65,7 @@ export const HowWeWork = () => {
                   className="relative bg-card rounded-2xl p-8 border border-border/50 hover:border-border hover:shadow-lg transition-all duration-300"
                 >
                   <div className="relative z-10">
-                    <span className="text-5xl font-bold text-primary/15 mb-4 block">
+                    <span className="text-5xl font-bold text-foreground/20 mb-4 block">
                       {step.number}
                     </span>
                     <h3 className="text-xl font-semibold mb-3">{step.title}</h3>

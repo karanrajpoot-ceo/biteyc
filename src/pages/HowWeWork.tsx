@@ -119,7 +119,7 @@ const HowWeWorkPage = () => {
                         <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center">
                           <step.icon className="w-7 h-7 text-accent" />
                         </div>
-                        <span className="text-5xl font-bold text-muted/30">{step.number}</span>
+                        <span className="text-5xl font-bold text-foreground/20">{step.number}</span>
                       </div>
                       <h2 className="text-2xl lg:text-3xl font-bold mb-4">{step.title}</h2>
                       <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -136,7 +136,7 @@ const HowWeWorkPage = () => {
                     </div>
                     <div className={`bg-muted/30 p-8 lg:p-12 flex items-center justify-center ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
                       <div className="text-center">
-                        <span className="text-8xl lg:text-9xl font-bold text-muted/20">{step.number}</span>
+                        <span className="text-8xl lg:text-9xl font-bold text-foreground/10">{step.number}</span>
                       </div>
                     </div>
                   </div>
