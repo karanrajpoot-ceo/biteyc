@@ -18,9 +18,9 @@ const footerLinks = {
   ],
   resources: [
     { label: 'Case Studies', href: '/case-studies' },
+    { label: 'Pricing', href: '/pricing' },
     { label: 'How We Work', href: '/how-we-work' },
     { label: 'FAQ', href: '/about' },
-    { label: 'Blog', href: '/' },
   ],
 };
 
