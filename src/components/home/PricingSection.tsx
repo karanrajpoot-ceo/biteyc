@@ -7,7 +7,7 @@ const pricingPlans = [
   {
     name: 'Starter',
     description: 'Perfect for small businesses getting started with automation',
-    price: '$179',
+    price: '$499',
     period: '/month',
     icon: Zap,
     popular: false,
@@ -29,7 +29,7 @@ const pricingPlans = [
   {
     name: 'Growth',
     description: 'Ideal for growing businesses ready to scale their operations',
-    price: '$419',
+    price: '$999',
     period: '/month',
     icon: Crown,
     popular: true,
@@ -53,7 +53,7 @@ const pricingPlans = [
   {
     name: 'Enterprise',
     description: 'For established businesses needing comprehensive solutions',
-    price: '$899',
+    price: '$1499',
     period: '/month',
     icon: Building2,
     popular: false,
