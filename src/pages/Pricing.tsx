@@ -7,7 +7,12 @@ import {
   ArrowRight, 
   Star,
   MessageSquare,
-  HelpCircle
+  HelpCircle,
+  Shield,
+  Clock,
+  Users,
+  Sparkles,
+  MessageCircle
 } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
@@ -17,7 +22,7 @@ const pricingPlans = [
   {
     name: 'Starter',
     description: 'Perfect for small businesses getting started with automation',
-    price: '₹15,000',
+    price: '$179',
     period: '/month',
     icon: Zap,
     popular: false,
@@ -42,7 +47,7 @@ const pricingPlans = [
   {
     name: 'Growth',
     description: 'Ideal for growing businesses ready to scale their operations',
-    price: '₹35,000',
+    price: '$419',
     period: '/month',
     icon: Crown,
     popular: true,
@@ -50,7 +55,7 @@ const pricingPlans = [
       'Advanced AI Chatbot',
       'WhatsApp + Instagram automation',
       'Up to 10,000 messages/month',
-      'Meta Ads management (up to ₹50K spend)',
+      'Meta Ads management (up to $600 spend)',
       'Lead nurturing sequences',
       'CRM integration (HubSpot, Zoho)',
       'Weekly performance reports',
@@ -69,7 +74,7 @@ const pricingPlans = [
   {
     name: 'Enterprise',
     description: 'For established businesses needing comprehensive solutions',
-    price: '₹75,000',
+    price: '$899',
     period: '/month',
     icon: Building2,
     popular: false,
@@ -111,13 +116,51 @@ const faqs = [
     question: 'Do you offer annual discounts?',
     answer: 'Yes! Pay annually and get 2 months free on any plan. Contact us for custom enterprise pricing.',
   },
+  {
+    question: 'What payment methods do you accept?',
+    answer: 'We accept all major credit/debit cards, bank transfers, UPI, and PayPal for international clients.',
+  },
+  {
+    question: 'Is there a money-back guarantee?',
+    answer: 'Yes, we offer a 14-day money-back guarantee on all plans. If you are not satisfied, we will refund your payment.',
+  },
+];
+
+const benefits = [
+  {
+    icon: Shield,
+    title: 'No Hidden Fees',
+    description: 'What you see is what you pay. No surprise charges ever.',
+  },
+  {
+    icon: Clock,
+    title: 'Quick Setup',
+    description: 'Get started within 48 hours with our rapid onboarding.',
+  },
+  {
+    icon: Users,
+    title: 'Dedicated Support',
+    description: 'Real humans ready to help you succeed.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Free Updates',
+    description: 'Access to new features and improvements at no extra cost.',
+  },
 ];
 
 const Pricing = () => {
+  const getWhatsAppLink = (planName: string, price: string) => {
+    const message = encodeURIComponent(
+      `Hi! I'm interested in the ${planName} plan (${price}/month). Please share more details about how I can get started.`
+    );
+    return `https://wa.me/918433299471?text=${message}`;
+  };
+
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-muted/50 to-background">
+      <section className="pt-32 pb-16 bg-gradient-to-b from-muted/50 to-background">
         <div className="container-tight">
           <AnimatedSection className="text-center max-w-3xl mx-auto">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-sm font-medium mb-6">
@@ -137,10 +180,31 @@ const Pricing = () => {
         </div>
       </section>
 
+      {/* Benefits Bar */}
+      <section className="py-8 border-y border-border/50 bg-muted/20">
+        <div className="container-tight">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {benefits.map((benefit, index) => (
+              <AnimatedSection key={index} animation="fadeUp" delay={index * 0.1}>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                    <benefit.icon className="w-5 h-5 text-accent" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm">{benefit.title}</p>
+                    <p className="text-xs text-muted-foreground">{benefit.description}</p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Cards */}
       <section className="section-padding">
         <div className="container-tight">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {pricingPlans.map((plan, index) => (
               <AnimatedSection
                 key={index}
@@ -149,7 +213,7 @@ const Pricing = () => {
               >
                 <motion.div
                   whileHover={{ y: -8 }}
-                  className={`relative bg-card rounded-3xl p-8 border h-full flex flex-col ${
+                  className={`relative bg-card rounded-3xl p-6 lg:p-8 border h-full flex flex-col ${
                     plan.popular 
                       ? 'border-accent shadow-glow' 
                       : 'border-border/50 hover:border-border'
@@ -195,12 +259,13 @@ const Pricing = () => {
                     ))}
                   </ul>
 
-                  <a href="https://cal.com/biteyc/30mins" target="_blank" rel="noopener noreferrer">
+                  <a href={getWhatsAppLink(plan.name, plan.price)} target="_blank" rel="noopener noreferrer">
                     <Button 
                       variant={plan.popular ? 'hero' : 'outline'} 
                       size="lg" 
                       className="w-full"
                     >
+                      <MessageCircle className="w-5 h-5" />
                       Get Started
                       <ArrowRight className="w-5 h-5" />
                     </Button>
@@ -210,7 +275,7 @@ const Pricing = () => {
             ))}
           </div>
 
-          <AnimatedSection className="mt-12 text-center">
+          <AnimatedSection className="mt-10 text-center">
             <div className="bg-muted/50 rounded-2xl p-8 max-w-2xl mx-auto">
               <h3 className="text-xl font-bold mb-2">Need a Custom Solution?</h3>
               <p className="text-muted-foreground mb-4">
@@ -226,8 +291,81 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* Comparison Table */}
       <section className="section-padding bg-muted/30">
+        <div className="container-tight">
+          <AnimatedSection className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Compare Plans
+            </h2>
+            <p className="text-muted-foreground">See what's included in each plan</p>
+          </AnimatedSection>
+
+          <AnimatedSection>
+            <div className="bg-card rounded-2xl border border-border/50 overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-border">
+                      <th className="text-left p-4 font-semibold">Feature</th>
+                      <th className="p-4 font-semibold">Starter</th>
+                      <th className="p-4 font-semibold bg-accent/5">Growth</th>
+                      <th className="p-4 font-semibold">Enterprise</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-border/50">
+                      <td className="p-4 text-muted-foreground">Monthly Messages</td>
+                      <td className="p-4 text-center">1,000</td>
+                      <td className="p-4 text-center bg-accent/5">10,000</td>
+                      <td className="p-4 text-center">Unlimited</td>
+                    </tr>
+                    <tr className="border-b border-border/50">
+                      <td className="p-4 text-muted-foreground">Social Platforms</td>
+                      <td className="p-4 text-center">1</td>
+                      <td className="p-4 text-center bg-accent/5">2</td>
+                      <td className="p-4 text-center">All</td>
+                    </tr>
+                    <tr className="border-b border-border/50">
+                      <td className="p-4 text-muted-foreground">Meta Ads Management</td>
+                      <td className="p-4 text-center">—</td>
+                      <td className="p-4 text-center bg-accent/5"><Check className="w-5 h-5 text-whatsapp mx-auto" /></td>
+                      <td className="p-4 text-center"><Check className="w-5 h-5 text-whatsapp mx-auto" /></td>
+                    </tr>
+                    <tr className="border-b border-border/50">
+                      <td className="p-4 text-muted-foreground">Google Ads Management</td>
+                      <td className="p-4 text-center">—</td>
+                      <td className="p-4 text-center bg-accent/5">—</td>
+                      <td className="p-4 text-center"><Check className="w-5 h-5 text-whatsapp mx-auto" /></td>
+                    </tr>
+                    <tr className="border-b border-border/50">
+                      <td className="p-4 text-muted-foreground">CRM Integration</td>
+                      <td className="p-4 text-center">—</td>
+                      <td className="p-4 text-center bg-accent/5"><Check className="w-5 h-5 text-whatsapp mx-auto" /></td>
+                      <td className="p-4 text-center"><Check className="w-5 h-5 text-whatsapp mx-auto" /></td>
+                    </tr>
+                    <tr className="border-b border-border/50">
+                      <td className="p-4 text-muted-foreground">Dedicated Account Manager</td>
+                      <td className="p-4 text-center">—</td>
+                      <td className="p-4 text-center bg-accent/5">—</td>
+                      <td className="p-4 text-center"><Check className="w-5 h-5 text-whatsapp mx-auto" /></td>
+                    </tr>
+                    <tr>
+                      <td className="p-4 text-muted-foreground">Support Response Time</td>
+                      <td className="p-4 text-center">48 hours</td>
+                      <td className="p-4 text-center bg-accent/5">24 hours</td>
+                      <td className="p-4 text-center">1 hour</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section-padding">
         <div className="container-tight">
           <AnimatedSection className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-sm font-medium mb-4">
@@ -239,7 +377,7 @@ const Pricing = () => {
             </h2>
           </AnimatedSection>
 
-          <div className="max-w-2xl mx-auto grid gap-6">
+          <div className="max-w-2xl mx-auto grid gap-4">
             {faqs.map((faq, index) => (
               <AnimatedSection key={index} animation="fadeUp" delay={index * 0.1}>
                 <div className="bg-card rounded-2xl p-6 border border-border/50">

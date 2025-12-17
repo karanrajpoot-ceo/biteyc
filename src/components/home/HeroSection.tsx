@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowRight, MessageCircle, Zap, Target, TrendingUp, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroRobot from '@/assets/hero-robot.png';
@@ -10,9 +10,6 @@ const features = [
 ];
 
 export const HeroSection = () => {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 100]);
-
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
       {/* Background Elements */}
@@ -22,7 +19,7 @@ export const HeroSection = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-accent/5 to-transparent rounded-full" />
 
       <div className="container-tight relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <div className="order-2 lg:order-1">
             <motion.div
@@ -103,14 +100,16 @@ export const HeroSection = () => {
           {/* Hero Image */}
           <motion.div 
             className="order-1 lg:order-2 relative"
-            style={{ y }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent rounded-3xl blur-2xl" />
               <img
                 src={heroRobot}
                 alt="AI Automation Robot"
-                className="relative w-full h-auto rounded-3xl"
+                className="relative w-full h-auto max-h-[500px] object-contain rounded-3xl"
               />
               
               {/* Floating Cards */}
