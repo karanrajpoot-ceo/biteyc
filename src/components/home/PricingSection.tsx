@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Check, Zap, Crown, Building2, ArrowRight, Star } from 'lucide-react';
+import { Check, Zap, Crown, Building2, ArrowRight, Star, MessageCircle } from 'lucide-react';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { Button } from '@/components/ui/button';
 
@@ -7,7 +7,7 @@ const pricingPlans = [
   {
     name: 'Starter',
     description: 'Perfect for small businesses getting started with automation',
-    price: '₹15,000',
+    price: '$179',
     period: '/month',
     icon: Zap,
     popular: false,
@@ -29,7 +29,7 @@ const pricingPlans = [
   {
     name: 'Growth',
     description: 'Ideal for growing businesses ready to scale their operations',
-    price: '₹35,000',
+    price: '$419',
     period: '/month',
     icon: Crown,
     popular: true,
@@ -37,7 +37,7 @@ const pricingPlans = [
       'Advanced AI Chatbot',
       'WhatsApp + Instagram automation',
       'Up to 10,000 messages/month',
-      'Meta Ads management (up to ₹50K spend)',
+      'Meta Ads management (up to $600 spend)',
       'Lead nurturing sequences',
       'CRM integration',
       'Weekly performance reports',
@@ -53,7 +53,7 @@ const pricingPlans = [
   {
     name: 'Enterprise',
     description: 'For established businesses needing comprehensive solutions',
-    price: '₹75,000',
+    price: '$899',
     period: '/month',
     icon: Building2,
     popular: false,
@@ -76,10 +76,17 @@ const pricingPlans = [
 ];
 
 export const PricingSection = () => {
+  const getWhatsAppLink = (planName: string, price: string) => {
+    const message = encodeURIComponent(
+      `Hi! I'm interested in the ${planName} plan (${price}/month). Please share more details about how I can get started.`
+    );
+    return `https://wa.me/918433299471?text=${message}`;
+  };
+
   return (
     <section className="section-padding bg-muted/30">
       <div className="container-tight">
-        <AnimatedSection className="text-center mb-16">
+        <AnimatedSection className="text-center mb-12">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-sm font-medium mb-4">
             <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
             Pricing Plans
@@ -95,7 +102,7 @@ export const PricingSection = () => {
           </p>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {pricingPlans.map((plan, index) => (
             <AnimatedSection
               key={index}
@@ -104,7 +111,7 @@ export const PricingSection = () => {
             >
               <motion.div
                 whileHover={{ y: -8 }}
-                className={`relative bg-card rounded-3xl p-8 border h-full flex flex-col ${
+                className={`relative bg-card rounded-3xl p-6 lg:p-8 border h-full flex flex-col ${
                   plan.popular 
                     ? 'border-accent shadow-glow' 
                     : 'border-border/50 hover:border-border'
@@ -146,12 +153,13 @@ export const PricingSection = () => {
                   ))}
                 </ul>
 
-                <a href="https://cal.com/biteyc/30mins" target="_blank" rel="noopener noreferrer">
+                <a href={getWhatsAppLink(plan.name, plan.price)} target="_blank" rel="noopener noreferrer">
                   <Button 
                     variant={plan.popular ? 'hero' : 'outline'} 
                     size="lg" 
                     className="w-full"
                   >
+                    <MessageCircle className="w-5 h-5" />
                     Get Started
                     <ArrowRight className="w-5 h-5" />
                   </Button>
@@ -161,7 +169,7 @@ export const PricingSection = () => {
           ))}
         </div>
 
-        <AnimatedSection className="mt-12 text-center" delay={0.3}>
+        <AnimatedSection className="mt-10 text-center" delay={0.3}>
           <p className="text-muted-foreground">
             Need a custom solution? {' '}
             <a 

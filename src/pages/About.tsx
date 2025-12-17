@@ -12,7 +12,13 @@ import {
   ArrowRight,
   Plus,
   Minus,
-  HelpCircle
+  HelpCircle,
+  Lightbulb,
+  Heart,
+  Rocket,
+  Shield,
+  Clock,
+  Globe
 } from 'lucide-react';
 import { Layout } from '@/components/layout/Layout';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
@@ -34,6 +40,37 @@ const values = [
     title: 'Innovation & Excellence',
     description: 'We stay ahead of the curve, constantly exploring new technologies and strategies to give you an edge.',
   },
+  {
+    icon: Heart,
+    title: 'Transparency',
+    description: 'No hidden fees, no surprises. We believe in honest communication and clear expectations.',
+  },
+  {
+    icon: Rocket,
+    title: 'Speed & Agility',
+    description: 'Fast implementation without compromising quality. We adapt quickly to market changes.',
+  },
+  {
+    icon: Shield,
+    title: 'Data Security',
+    description: 'Your data is safe with us. We follow industry best practices for security and privacy.',
+  },
+];
+
+const team = [
+  {
+    name: 'Karan Rajpoot',
+    role: 'Founder & CEO',
+    bio: 'Passionate about AI and automation, Karan leads Biteyc with a vision to make powerful technology accessible to all businesses.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face',
+  },
+];
+
+const milestones = [
+  { year: '2022', title: 'Founded', desc: 'Biteyc was born with a mission to democratize AI automation' },
+  { year: '2023', title: '100+ Clients', desc: 'Reached our first hundred happy clients across India' },
+  { year: '2023', title: '10M Messages', desc: 'Our automations processed over 10 million messages' },
+  { year: '2024', title: 'Enterprise Launch', desc: 'Launched enterprise solutions for large businesses' },
 ];
 
 const faqs = [
@@ -61,6 +98,14 @@ const faqs = [
     question: 'What support do you provide after implementation?',
     answer: 'We provide ongoing support including regular performance reviews, optimization recommendations, and technical assistance. All our packages include a dedicated account manager and access to our support team via WhatsApp and email.',
   },
+  {
+    question: 'Do you offer training for our team?',
+    answer: 'Yes! We provide comprehensive training sessions to help your team understand and manage the automation tools. We also provide documentation and video tutorials for reference.',
+  },
+  {
+    question: 'What makes Biteyc different from other agencies?',
+    answer: 'We combine deep AI expertise with performance marketing knowledge. Unlike traditional agencies, we focus on measurable results and provide end-to-end solutions from strategy to implementation to optimization.',
+  },
 ];
 
 const About = () => {
@@ -69,7 +114,7 @@ const About = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-muted/50 to-background">
+      <section className="pt-32 pb-16 bg-gradient-to-b from-muted/50 to-background">
         <div className="container-tight">
           <AnimatedSection className="text-center max-w-3xl mx-auto">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-sm font-medium mb-6">
@@ -92,7 +137,7 @@ const About = () => {
       {/* Story Section */}
       <section className="section-padding">
         <div className="container-tight">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection animation="slideLeft">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -111,24 +156,29 @@ const About = () => {
                   to established enterprises. Our commitment remains the same: deliver results 
                   that matter.
                 </p>
+                <p>
+                  We believe that every business deserves access to the same powerful tools 
+                  that big corporations use. That's why we've made our solutions affordable, 
+                  scalable, and easy to implement.
+                </p>
               </div>
             </AnimatedSection>
 
             <AnimatedSection animation="slideRight">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-card rounded-2xl p-8 border border-border/50 text-center">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-card rounded-2xl p-6 border border-border/50 text-center">
                   <p className="text-4xl font-bold mb-2">500+</p>
                   <p className="text-sm text-muted-foreground">Happy Clients</p>
                 </div>
-                <div className="bg-card rounded-2xl p-8 border border-border/50 text-center">
+                <div className="bg-card rounded-2xl p-6 border border-border/50 text-center">
                   <p className="text-4xl font-bold mb-2">10M+</p>
                   <p className="text-sm text-muted-foreground">Messages Automated</p>
                 </div>
-                <div className="bg-card rounded-2xl p-8 border border-border/50 text-center">
+                <div className="bg-card rounded-2xl p-6 border border-border/50 text-center">
                   <p className="text-4xl font-bold mb-2">300%</p>
                   <p className="text-sm text-muted-foreground">Average ROI</p>
                 </div>
-                <div className="bg-card rounded-2xl p-8 border border-border/50 text-center">
+                <div className="bg-card rounded-2xl p-6 border border-border/50 text-center">
                   <p className="text-4xl font-bold mb-2">24/7</p>
                   <p className="text-sm text-muted-foreground">Support Available</p>
                 </div>
@@ -138,25 +188,47 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values */}
+      {/* Timeline */}
       <section className="section-padding bg-muted/30">
         <div className="container-tight">
-          <AnimatedSection className="text-center mb-16">
+          <AnimatedSection className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Journey</h2>
+            <p className="text-muted-foreground">Key milestones in our growth story</p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-4 gap-6">
+            {milestones.map((milestone, index) => (
+              <AnimatedSection key={index} animation="fadeUp" delay={index * 0.1}>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-accent mb-2">{milestone.year}</div>
+                  <h3 className="text-lg font-semibold mb-2">{milestone.title}</h3>
+                  <p className="text-muted-foreground text-sm">{milestone.desc}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="section-padding">
+        <div className="container-tight">
+          <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Values</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               These principles guide everything we do at Biteyc.
             </p>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((value, index) => (
               <AnimatedSection key={index} animation="fadeUp" delay={index * 0.1}>
                 <motion.div
                   whileHover={{ y: -4 }}
-                  className="bg-card rounded-2xl p-8 border border-border/50 text-center h-full"
+                  className="bg-card rounded-2xl p-6 border border-border/50 h-full"
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-6">
-                    <value.icon className="w-8 h-8 text-accent" />
+                  <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-4">
+                    <value.icon className="w-7 h-7 text-accent" />
                   </div>
                   <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
                   <p className="text-muted-foreground">{value.description}</p>
@@ -167,10 +239,60 @@ const About = () => {
         </div>
       </section>
 
+      {/* Team */}
+      <section className="section-padding bg-muted/30">
+        <div className="container-tight">
+          <AnimatedSection className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Meet the Founder</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              The visionary behind Biteyc
+            </p>
+          </AnimatedSection>
+
+          <div className="max-w-md mx-auto">
+            {team.map((member, index) => (
+              <AnimatedSection key={index} animation="fadeUp">
+                <motion.div
+                  whileHover={{ y: -4 }}
+                  className="bg-card rounded-3xl p-8 border border-border/50 text-center"
+                >
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-32 h-32 rounded-2xl object-cover mx-auto mb-6 shadow-lg"
+                  />
+                  <h3 className="text-2xl font-semibold mb-1">{member.name}</h3>
+                  <p className="text-accent font-medium mb-4">{member.role}</p>
+                  <p className="text-muted-foreground">{member.bio}</p>
+                  <div className="flex justify-center gap-4 mt-6">
+                    <a 
+                      href="https://instagram.com/karanrajpoot.me" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
+                    >
+                      <Instagram className="w-5 h-5" />
+                    </a>
+                    <a 
+                      href="https://www.linkedin.com/in/karanrajpoot0" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
+                    >
+                      <Linkedin className="w-5 h-5" />
+                    </a>
+                  </div>
+                </motion.div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section className="section-padding">
         <div className="container-tight">
-          <AnimatedSection className="text-center mb-16">
+          <AnimatedSection className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-sm font-medium mb-4">
               <HelpCircle className="w-4 h-4" />
               FAQ
@@ -186,9 +308,9 @@ const About = () => {
                 <div className="border-b border-border">
                   <button
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                    className="w-full py-6 flex items-center justify-between text-left group"
+                    className="w-full py-5 flex items-center justify-between text-left group"
                   >
-                    <span className="font-semibold text-lg pr-8 group-hover:text-accent transition-colors">
+                    <span className="font-semibold pr-8 group-hover:text-accent transition-colors">
                       {faq.question}
                     </span>
                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted flex items-center justify-center group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
@@ -208,7 +330,7 @@ const About = () => {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <p className="pb-6 text-muted-foreground leading-relaxed">
+                        <p className="pb-5 text-muted-foreground leading-relaxed">
                           {faq.answer}
                         </p>
                       </motion.div>
@@ -262,6 +384,17 @@ const About = () => {
                     <Instagram className="w-5 h-5" />
                   </div>
                   <span>@karanrajpoot.me</span>
+                </a>
+                <a 
+                  href="https://linktr.ee/biteyc" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                >
+                  <div className="w-12 h-12 rounded-full bg-primary-foreground/10 flex items-center justify-center">
+                    <Globe className="w-5 h-5" />
+                  </div>
+                  <span>linktr.ee/biteyc</span>
                 </a>
               </div>
             </AnimatedSection>

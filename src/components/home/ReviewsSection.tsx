@@ -8,48 +8,42 @@ const reviews = [
     role: 'Founder, TechStart Solutions',
     content: 'Biteyc transformed our lead generation process. The WhatsApp automation alone increased our response rate by 300%. Highly recommended!',
     rating: 5,
-    avatar: 'RS',
-    gradient: 'from-accent to-accent/70',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
   },
   {
     name: 'Priya Patel',
     role: 'Marketing Director, StyleHub',
     content: 'Their Meta ads strategy doubled our ROAS within the first month. The team really understands performance marketing.',
     rating: 5,
-    avatar: 'PP',
-    gradient: 'from-whatsapp to-whatsapp/70',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face',
   },
   {
     name: 'Amit Kumar',
     role: 'CEO, EduLearn Academy',
     content: 'The chatbot they built handles 80% of our student inquiries automatically. It\'s like having a 24/7 sales team!',
     rating: 5,
-    avatar: 'AK',
-    gradient: 'from-instagram to-instagram/70',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
   },
   {
     name: 'Sneha Reddy',
     role: 'Owner, Wellness Studio',
     content: 'From strategy to execution, Biteyc delivered exceptional results. Our Instagram following grew 5x and conversions are through the roof.',
     rating: 5,
-    avatar: 'SR',
-    gradient: 'from-facebook to-facebook/70',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
   },
   {
     name: 'Vikram Singh',
     role: 'Founder, GrowthBox Agency',
     content: 'Professional, responsive, and results-oriented. Biteyc is our go-to partner for all automation needs.',
     rating: 5,
-    avatar: 'VS',
-    gradient: 'from-accent to-accent/70',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
   },
   {
     name: 'Neha Gupta',
     role: 'Marketing Head, FoodieDelights',
     content: 'The AI chatbot integration was seamless. Customer satisfaction scores improved significantly after implementation.',
     rating: 5,
-    avatar: 'NG',
-    gradient: 'from-whatsapp to-whatsapp/70',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face',
   },
 ];
 
@@ -61,7 +55,7 @@ export const ReviewsSection = () => {
       <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-whatsapp/5 rounded-full blur-[100px] -translate-y-1/2" />
       
       <div className="container-tight relative">
-        <AnimatedSection className="text-center mb-16">
+        <AnimatedSection className="text-center mb-12">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-yellow-500/20 to-orange-500/20 text-foreground text-sm font-medium mb-4">
             <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
             Client Reviews
@@ -102,9 +96,11 @@ export const ReviewsSection = () => {
                 </div>
                 <p className="text-foreground mb-8 leading-relaxed text-lg">{review.content}</p>
                 <div className="flex items-center gap-4">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${review.gradient} text-white flex items-center justify-center font-bold text-lg shadow-lg`}>
-                    {review.avatar}
-                  </div>
+                  <img 
+                    src={review.image} 
+                    alt={review.name}
+                    className="w-14 h-14 rounded-2xl object-cover shadow-lg"
+                  />
                   <div>
                     <p className="font-semibold text-lg">{review.name}</p>
                     <p className="text-sm text-muted-foreground">{review.role}</p>
@@ -116,7 +112,7 @@ export const ReviewsSection = () => {
         </div>
 
         {/* Stats below reviews */}
-        <AnimatedSection className="mt-16">
+        <AnimatedSection className="mt-12">
           <div className="flex flex-wrap justify-center gap-8 md:gap-16">
             <div className="text-center">
               <p className="text-4xl font-bold mb-1">4.9/5</p>
