@@ -54,6 +54,10 @@ export default {
         tiktok: "hsl(var(--tiktok))",
         whatsapp: "hsl(var(--whatsapp))",
         facebook: "hsl(var(--facebook))",
+        success: "hsl(var(--success))",
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(circle, var(--tw-gradient-stops))',
       },
       borderRadius: {
         lg: "var(--radius)",

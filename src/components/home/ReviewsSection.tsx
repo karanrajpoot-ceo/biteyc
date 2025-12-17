@@ -9,6 +9,7 @@ const reviews = [
     content: 'Biteyc transformed our lead generation process. The WhatsApp automation alone increased our response rate by 300%. Highly recommended!',
     rating: 5,
     avatar: 'RS',
+    gradient: 'from-accent to-accent/70',
   },
   {
     name: 'Priya Patel',
@@ -16,6 +17,7 @@ const reviews = [
     content: 'Their Meta ads strategy doubled our ROAS within the first month. The team really understands performance marketing.',
     rating: 5,
     avatar: 'PP',
+    gradient: 'from-whatsapp to-whatsapp/70',
   },
   {
     name: 'Amit Kumar',
@@ -23,6 +25,7 @@ const reviews = [
     content: 'The chatbot they built handles 80% of our student inquiries automatically. It\'s like having a 24/7 sales team!',
     rating: 5,
     avatar: 'AK',
+    gradient: 'from-instagram to-instagram/70',
   },
   {
     name: 'Sneha Reddy',
@@ -30,6 +33,7 @@ const reviews = [
     content: 'From strategy to execution, Biteyc delivered exceptional results. Our Instagram following grew 5x and conversions are through the roof.',
     rating: 5,
     avatar: 'SR',
+    gradient: 'from-facebook to-facebook/70',
   },
   {
     name: 'Vikram Singh',
@@ -37,6 +41,7 @@ const reviews = [
     content: 'Professional, responsive, and results-oriented. Biteyc is our go-to partner for all automation needs.',
     rating: 5,
     avatar: 'VS',
+    gradient: 'from-accent to-accent/70',
   },
   {
     name: 'Neha Gupta',
@@ -44,15 +49,20 @@ const reviews = [
     content: 'The AI chatbot integration was seamless. Customer satisfaction scores improved significantly after implementation.',
     rating: 5,
     avatar: 'NG',
+    gradient: 'from-whatsapp to-whatsapp/70',
   },
 ];
 
 export const ReviewsSection = () => {
   return (
-    <section className="section-padding bg-muted/30 overflow-hidden">
-      <div className="container-tight">
+    <section className="section-padding bg-gradient-to-b from-muted/30 to-background overflow-hidden relative">
+      {/* Background decoration */}
+      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] -translate-y-1/2" />
+      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-whatsapp/5 rounded-full blur-[100px] -translate-y-1/2" />
+      
+      <div className="container-tight relative">
         <AnimatedSection className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-sm font-medium mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-yellow-500/20 to-orange-500/20 text-foreground text-sm font-medium mb-4">
             <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
             Client Reviews
           </span>
@@ -68,8 +78,8 @@ export const ReviewsSection = () => {
 
         {/* Marquee Effect */}
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-muted/30 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-muted/30 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background via-background/80 to-transparent z-10" />
           
           <motion.div
             animate={{ x: [0, -1920] }}
@@ -77,30 +87,51 @@ export const ReviewsSection = () => {
             className="flex gap-6"
           >
             {[...reviews, ...reviews].map((review, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="flex-shrink-0 w-[350px] bg-card rounded-2xl p-6 border border-border/50"
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="flex-shrink-0 w-[380px] bg-card rounded-3xl p-8 border border-border/50 hover:border-accent/30 hover:shadow-xl transition-all duration-300 group"
               >
-                <Quote className="w-8 h-8 text-muted mb-4" />
-                <p className="text-foreground mb-6 leading-relaxed">{review.content}</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold">
+                <div className="flex items-start justify-between mb-6">
+                  <Quote className="w-10 h-10 text-accent/30 group-hover:text-accent/50 transition-colors" />
+                  <div className="flex gap-1">
+                    {Array.from({ length: review.rating }).map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                    ))}
+                  </div>
+                </div>
+                <p className="text-foreground mb-8 leading-relaxed text-lg">{review.content}</p>
+                <div className="flex items-center gap-4">
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${review.gradient} text-white flex items-center justify-center font-bold text-lg shadow-lg`}>
                     {review.avatar}
                   </div>
                   <div>
-                    <p className="font-semibold">{review.name}</p>
+                    <p className="font-semibold text-lg">{review.name}</p>
                     <p className="text-sm text-muted-foreground">{review.role}</p>
                   </div>
                 </div>
-                <div className="flex gap-1 mt-4">
-                  {Array.from({ length: review.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                  ))}
-                </div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
+
+        {/* Stats below reviews */}
+        <AnimatedSection className="mt-16">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
+            <div className="text-center">
+              <p className="text-4xl font-bold mb-1">4.9/5</p>
+              <p className="text-sm text-muted-foreground">Average Rating</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-bold mb-1">500+</p>
+              <p className="text-sm text-muted-foreground">Happy Clients</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-bold mb-1">98%</p>
+              <p className="text-sm text-muted-foreground">Client Retention</p>
+            </div>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );
