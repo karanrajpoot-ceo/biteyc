@@ -1,33 +1,25 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, MessageCircle, Zap, Target, TrendingUp } from 'lucide-react';
+import { ArrowRight, MessageCircle, Zap, Target, TrendingUp, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import heroRobot from '@/assets/hero-robot.png';
 
-const stats = [
-  { value: '500+', label: 'Happy Clients' },
-  { value: '10M+', label: 'Leads Generated' },
-  { value: '300%', label: 'Average ROI' },
-  { value: '24/7', label: 'Support' },
-];
-
 const features = [
-  { icon: Zap, title: 'Lightning Fast Setup', description: 'Get started in minutes, not weeks' },
-  { icon: Target, title: 'Precision Targeting', description: 'Reach the right audience every time' },
-  { icon: TrendingUp, title: 'Scalable Growth', description: 'Grow your business without limits' },
+  { icon: Zap, title: 'Lightning Fast Setup' },
+  { icon: Target, title: 'Precision Targeting' },
+  { icon: TrendingUp, title: 'Scalable Growth' },
 ];
 
 export const HeroSection = () => {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const y = useTransform(scrollY, [0, 500], [0, 100]);
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-muted/50 to-background" />
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-muted rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-muted/50 via-background to-accent/5" />
+      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[100px] animate-pulse" />
+      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-whatsapp/10 rounded-full blur-[100px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-accent/5 to-transparent rounded-full" />
 
       <div className="container-tight relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -159,17 +151,6 @@ export const HeroSection = () => {
           </motion.div>
         </div>
 
-        {/* Stats */}
-        <AnimatedSection className="mt-20 lg:mt-32" delay={0.2}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <p className="text-3xl md:text-4xl font-bold mb-2">{stat.value}</p>
-                <p className="text-sm text-muted-foreground">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </AnimatedSection>
       </div>
     </section>
   );
