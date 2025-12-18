@@ -33,13 +33,13 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="bg-muted text-foreground">
+    <footer className="bg-foreground text-background">
       {/* CTA Section */}
       <div className="container-tight py-20 text-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
           Ready to Transform Your Business?
         </h2>
-        <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
+        <p className="text-background/70 text-lg mb-8 max-w-2xl mx-auto">
           Let's discuss how AI automations and strategic ads can scale your growth.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -49,7 +49,7 @@ export const Footer = () => {
             </Button>
           </a>
           <a href="https://wa.me/918433299471" target="_blank" rel="noopener noreferrer">
-            <Button variant="outline" size="lg" className="w-full sm:w-auto">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto border-background/30 text-background hover:bg-background hover:text-foreground">
               <MessageCircle className="w-5 h-5 mr-2" />
               Chat on WhatsApp
             </Button>
@@ -57,7 +57,7 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t border-border">
+      <div className="border-t border-background/10">
         <div className="container-tight py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
             {/* Brand Column */}
@@ -66,7 +66,7 @@ export const Footer = () => {
                 <img src={logo} alt="Biteyc" className="w-12 h-12 rounded-lg" />
                 <span className="text-2xl font-bold">Biteyc</span>
               </Link>
-              <p className="text-muted-foreground mb-6 max-w-sm">
+              <p className="text-background/70 mb-6 max-w-sm">
                 AI Automations & Ads agency helping businesses grow through intelligent automation and strategic advertising.
               </p>
               <div className="flex gap-4">
@@ -76,7 +76,7 @@ export const Footer = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-foreground/10 flex items-center justify-center hover:bg-foreground/20 transition-colors"
+                    className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-background/20 transition-colors"
                     aria-label={social.label}
                   >
                     <social.icon className="w-5 h-5" />
@@ -93,7 +93,7 @@ export const Footer = () => {
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="text-muted-foreground hover:text-foreground transition-colors"
+                      className="text-background/70 hover:text-background transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -109,7 +109,7 @@ export const Footer = () => {
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="text-muted-foreground hover:text-foreground transition-colors"
+                      className="text-background/70 hover:text-background transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -125,7 +125,7 @@ export const Footer = () => {
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="text-muted-foreground hover:text-foreground transition-colors"
+                      className="text-background/70 hover:text-background transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -138,19 +138,19 @@ export const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-border">
+      <div className="border-t border-background/10">
         <div className="container-tight py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted-foreground text-sm">
+          <p className="text-background/60 text-sm">
             © 2024 Biteyc. All rights reserved.
           </p>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2 text-sm text-background/60">
             <Phone className="w-4 h-4" />
-            <a href="tel:+918433299471" className="hover:text-foreground transition-colors">
+            <a href="tel:+918433299471" className="hover:text-background transition-colors">
               +91 84332 99471
             </a>
             <span className="mx-2">•</span>
             <Mail className="w-4 h-4" />
-            <a href="mailto:hello.biteyc@gmail.com" className="hover:text-foreground transition-colors">
+            <a href="mailto:hello.biteyc@gmail.com" className="hover:text-background transition-colors">
               hello.biteyc@gmail.com
             </a>
           </div>
