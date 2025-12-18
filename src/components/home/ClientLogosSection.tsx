@@ -13,17 +13,14 @@ export const ClientLogosSection = () => {
   return (
     <section className="py-12 border-y border-border/30 bg-muted/30 overflow-hidden">
       <div className="container-tight">
-        <p className="text-center text-sm text-muted-foreground mb-8">
+        <p className="text-center text-sm text-muted-foreground mb-8 font-medium">
           Integrated with leading platforms
         </p>
         
         {/* Infinite scroll animation */}
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-muted/30 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-muted/30 to-transparent z-10" />
-          
           <motion.div 
-            className="flex gap-16 items-center"
+            className="flex gap-16 items-center justify-center"
             animate={{ x: [0, -800] }}
             transition={{ 
               duration: 20, 
@@ -34,12 +31,12 @@ export const ClientLogosSection = () => {
             {[...clients, ...clients].map((client, index) => (
               <div 
                 key={index} 
-                className="flex-shrink-0 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+                className="flex-shrink-0"
               >
                 <img 
                   src={client.logo} 
                   alt={client.name} 
-                  className="h-8 md:h-10 w-auto object-contain"
+                  className="h-10 w-auto object-contain"
                 />
               </div>
             ))}

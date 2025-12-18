@@ -72,8 +72,6 @@ export const ReviewsSection = () => {
 
         {/* Marquee Effect */}
         <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background via-background/80 to-transparent z-10" />
           
           <motion.div
             animate={{ x: [0, -1920] }}
