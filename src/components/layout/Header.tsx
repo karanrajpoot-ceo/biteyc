@@ -43,7 +43,7 @@ export const Header = () => {
 
       <nav className="container-tight relative flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 group">
+        <Link to="/" className="flex items-center gap-3 group" onClick={() => window.scrollTo(0, 0)}>
           <motion.div
             whileHover={{ rotate: [0, -10, 10, 0] }}
             transition={{ duration: 0.5 }}
@@ -67,6 +67,7 @@ export const Header = () => {
                   key={link.href}
                   to={link.href}
                   className="relative"
+                  onClick={() => window.scrollTo(0, 0)}
                 >
                   {isActive && (
                     <motion.div
@@ -155,6 +156,7 @@ export const Header = () => {
                 >
                   <Link
                     to={link.href}
+                    onClick={() => window.scrollTo(0, 0)}
                     className={`flex items-center justify-between py-3 px-4 rounded-xl text-lg font-medium transition-all ${
                       location.pathname === link.href
                         ? 'bg-muted text-foreground'
