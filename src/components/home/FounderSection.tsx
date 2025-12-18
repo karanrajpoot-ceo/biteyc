@@ -88,19 +88,19 @@ export const FounderSection = () => {
             className="space-y-6"
           >
             <div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-2">Ansh Agrawal</h3>
+              <h3 className="text-3xl md:text-4xl font-bold mb-2">Karan Rajpoot</h3>
               <p className="text-primary font-medium text-lg">Founder & CEO, Biteyc</p>
             </div>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
               A passionate entrepreneur and digital marketing strategist with over 5 years of experience 
-              in AI automation, performance marketing, and business transformation. Ansh founded Biteyc 
+              in AI automation, performance marketing, and business transformation. Karan founded Biteyc 
               with a vision to democratize cutting-edge AI technology for businesses of all sizes.
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
               With expertise in Meta Ads, Google Ads, WhatsApp Business API, and custom AI chatbot development, 
-              Ansh has helped over 500+ businesses across India achieve remarkable growth. His unique approach 
+              Karan has helped over 500+ businesses across India achieve remarkable growth. His unique approach 
               combines data-driven strategies with creative innovation, resulting in an average 300% ROI 
               improvement for clients.
             </p>
@@ -129,6 +129,7 @@ export const FounderSection = () => {
             <blockquote className="border-l-4 border-primary pl-6 italic text-lg text-foreground/80">
               "Technology should simplify business, not complicate it. At Biteyc, we make AI work for you, 
               so you can focus on what you do best — growing your business."
+              <span className="block mt-2 text-sm not-italic text-muted-foreground">— Karan Rajpoot</span>
             </blockquote>
 
             {/* Social Links */}
