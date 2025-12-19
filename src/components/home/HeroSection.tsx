@@ -99,17 +99,17 @@ export const HeroSection = () => {
 
           {/* Hero Image */}
           <motion.div 
-            className="order-1 lg:order-2 relative"
+            className="order-1 lg:order-2 relative flex-shrink-0"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative">
+            <div className="relative min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]">
               <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent rounded-3xl blur-2xl" />
               <img
                 src={heroRobot}
                 alt="AI Automation Robot"
-                className="relative w-full h-auto max-h-[500px] object-contain rounded-3xl"
+                className="relative w-full h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] object-contain rounded-3xl"
               />
               
               {/* Floating Cards */}

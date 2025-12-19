@@ -4,12 +4,14 @@ const clients = [
   { name: 'Google Ads', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Google_Ads_logo.svg/1200px-Google_Ads_logo.svg.png' },
   { name: 'Meta', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1200px-Meta_Platforms_Inc._logo.svg.png' },
   { name: 'WhatsApp', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png' },
-  { name: 'n8n', logo: 'https://n8n.io/n8n-logo.svg' },
   { name: 'HubSpot', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/HubSpot_Logo.svg/1200px-HubSpot_Logo.svg.png' },
   { name: 'Shopify', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shopify_logo_2018.svg/1200px-Shopify_logo_2018.svg.png' },
 ];
 
 export const ClientLogosSection = () => {
+  // Duplicate the clients multiple times for seamless infinite scroll
+  const duplicatedClients = [...clients, ...clients, ...clients, ...clients];
+
   return (
     <section className="py-12 border-y border-border/30 bg-muted/30 overflow-hidden">
       <div className="container-tight">
@@ -18,17 +20,18 @@ export const ClientLogosSection = () => {
         </p>
         
         {/* Infinite scroll animation */}
-        <div className="relative">
+        <div className="relative overflow-hidden">
           <motion.div 
-            className="flex gap-16 items-center justify-center"
-            animate={{ x: [0, -800] }}
+            className="flex gap-16 items-center"
+            animate={{ x: ['0%', '-50%'] }}
             transition={{ 
               duration: 20, 
               repeat: Infinity, 
-              ease: "linear" 
+              ease: "linear",
+              repeatType: "loop"
             }}
           >
-            {[...clients, ...clients].map((client, index) => (
+            {duplicatedClients.map((client, index) => (
               <div 
                 key={index} 
                 className="flex-shrink-0"
