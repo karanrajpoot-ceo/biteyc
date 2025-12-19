@@ -68,7 +68,7 @@ export const FounderSection = () => {
                     <Award className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold">5+</p>
+                    <p className="text-2xl font-bold">2+</p>
                     <p className="text-sm text-muted-foreground">Years Experience</p>
                   </div>
                 </div>
@@ -93,16 +93,18 @@ export const FounderSection = () => {
             </div>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              A passionate entrepreneur and digital marketing strategist with over 5 years of experience 
-              in AI automation, performance marketing, and business transformation. Karan founded Biteyc 
-              with a vision to democratize cutting-edge AI technology for businesses of all sizes.
+              Karan Rajpoot is a dynamic entrepreneur and digital marketing strategist with 2+ years of hands-on 
+              experience in AI automation, performance marketing, and business transformation. As the founder of 
+              Biteyc, he has dedicated himself to making cutting-edge AI technology accessible to businesses of 
+              all sizes across India.
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              With expertise in Meta Ads, Google Ads, WhatsApp Business API, and custom AI chatbot development, 
-              Karan has helped over 500+ businesses across India achieve remarkable growth. His unique approach 
-              combines data-driven strategies with creative innovation, resulting in an average 300% ROI 
-              improvement for clients.
+              Specializing in Meta Ads, Google Ads, WhatsApp Business API, and custom AI chatbot development, 
+              Karan has successfully helped 500+ businesses achieve remarkable growth. His data-driven approach, 
+              combined with creative innovation, consistently delivers an average 300% ROI improvement for clients. 
+              His mission is simple: empower businesses with automation that works 24/7, so they can focus on what 
+              truly matters—growing their vision.
             </p>
 
             <div className="grid grid-cols-2 gap-4 py-4">

@@ -57,12 +57,14 @@ const values = [
   },
 ];
 
+import founderImage from '@/assets/founder.jpg';
+
 const team = [
   {
     name: 'Karan Rajpoot',
     role: 'Founder & CEO',
-    bio: 'Passionate about AI and automation, Karan leads Biteyc with a vision to make powerful technology accessible to all businesses.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face',
+    bio: 'A dynamic entrepreneur with 2+ years of experience in AI automation and performance marketing. Karan founded Biteyc with a vision to make powerful AI technology accessible to businesses of all sizes, helping 500+ clients achieve remarkable growth.',
+    image: founderImage,
   },
 ];
 
@@ -241,7 +243,7 @@ const About = () => {
 
       {/* Team */}
       <section className="section-padding bg-muted/30">
-        <div className="container-tight">
+        <div className="container mx-auto px-4">
           <AnimatedSection className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Meet the Founder</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -249,38 +251,40 @@ const About = () => {
             </p>
           </AnimatedSection>
 
-          <div className="max-w-md mx-auto">
+          <div className="max-w-md lg:max-w-4xl mx-auto">
             {team.map((member, index) => (
               <AnimatedSection key={index} animation="fadeUp">
                 <motion.div
                   whileHover={{ y: -4 }}
-                  className="bg-card rounded-3xl p-8 border border-border/50 text-center"
+                  className="bg-card rounded-3xl p-8 border border-border/50 lg:flex lg:items-center lg:gap-8 lg:text-left text-center"
                 >
                   <img 
                     src={member.image} 
                     alt={member.name}
-                    className="w-32 h-32 rounded-2xl object-cover mx-auto mb-6 shadow-lg"
+                    className="w-32 h-32 lg:w-48 lg:h-48 rounded-2xl object-cover object-top mx-auto lg:mx-0 mb-6 lg:mb-0 shadow-lg flex-shrink-0"
                   />
-                  <h3 className="text-2xl font-semibold mb-1">{member.name}</h3>
-                  <p className="text-accent font-medium mb-4">{member.role}</p>
-                  <p className="text-muted-foreground">{member.bio}</p>
-                  <div className="flex justify-center gap-4 mt-6">
-                    <a 
-                      href="https://instagram.com/karanrajpoot.me" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
-                    >
-                      <Instagram className="w-5 h-5" />
-                    </a>
-                    <a 
-                      href="https://www.linkedin.com/in/karanrajpoot0" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
-                    >
-                      <Linkedin className="w-5 h-5" />
-                    </a>
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-1">{member.name}</h3>
+                    <p className="text-accent font-medium mb-4">{member.role}</p>
+                    <p className="text-muted-foreground">{member.bio}</p>
+                    <div className="flex justify-center lg:justify-start gap-4 mt-6">
+                      <a 
+                        href="https://instagram.com/karanrajpoot.me" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
+                      >
+                        <Instagram className="w-5 h-5" />
+                      </a>
+                      <a 
+                        href="https://www.linkedin.com/in/karanrajpoot0" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
+                      >
+                        <Linkedin className="w-5 h-5" />
+                      </a>
+                    </div>
                   </div>
                 </motion.div>
               </AnimatedSection>
