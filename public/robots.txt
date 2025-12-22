@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://biteyc.netlify.app/sitemap.xml
+Sitemap: https://biteyc.site/sitemap.xml
