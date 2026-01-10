@@ -99,7 +99,7 @@ export const HeroSection = () => {
 
           {/* Hero Image */}
           <motion.div 
-            className="order-1 lg:order-2 relative flex-shrink-0"
+            className="order-1 lg:order-2 relative flex-shrink-0 lg:ml-8 xl:ml-12"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
