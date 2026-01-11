@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, MessageCircle, Zap, Target, TrendingUp, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import heroRobot from '@/assets/hero-robot.png';
+import heroFrame from '@/assets/hero-frame.png';
 
 const features = [
   { icon: Zap, title: 'Lightning Fast Setup' },
@@ -105,11 +106,16 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]">
-              <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent rounded-3xl blur-2xl" />
+              {/* Paintbrush Frame Background */}
+              <img
+                src={heroFrame}
+                alt=""
+                className="absolute inset-0 w-full h-full object-contain scale-125 -z-10"
+              />
               <img
                 src={heroRobot}
                 alt="AI Automation Robot"
-                className="relative w-full h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] object-contain rounded-3xl"
+                className="relative w-full h-full min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] object-contain"
               />
               
               {/* Floating Cards */}
