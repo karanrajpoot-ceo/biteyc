@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Check, Zap, Crown, Building2, ArrowRight, Star, MessageCircle } from 'lucide-react';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
-import { Button } from '@/components/ui/button';
+import { MagneticButton } from '@/components/ui/magnetic-button';
 
 const pricingPlans = [
   {
@@ -153,8 +153,8 @@ export const PricingSection = () => {
                   ))}
                 </ul>
 
-                <a href={getWhatsAppLink(plan.name, plan.price)} target="_blank" rel="noopener noreferrer">
-                  <Button 
+                <a href={getWhatsAppLink(plan.name, plan.price)} target="_blank" rel="noopener noreferrer" className="block">
+                  <MagneticButton 
                     variant={plan.popular ? 'hero' : 'outline'} 
                     size="lg" 
                     className="w-full"
@@ -162,7 +162,7 @@ export const PricingSection = () => {
                     <MessageCircle className="w-5 h-5" />
                     Get Started
                     <ArrowRight className="w-5 h-5" />
-                  </Button>
+                  </MagneticButton>
                 </a>
               </motion.div>
             </AnimatedSection>
