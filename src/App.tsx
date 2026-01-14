@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LoadingScreen } from "@/components/shared/LoadingScreen";
+import { CustomCursor } from "@/components/shared/CustomCursor";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import HowWeWork from "./pages/HowWeWork";
@@ -22,6 +23,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         {isLoading && <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />}
+        <CustomCursor />
         <Toaster />
         <Sonner />
         <BrowserRouter>
