@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, MessageCircle, Zap, Target, TrendingUp, Play } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { MagneticButton } from '@/components/ui/magnetic-button';
 import heroRobot from '@/assets/hero-robot.png';
 import heroFrame from '@/assets/hero-frame.png';
 
@@ -69,16 +69,16 @@ export const HeroSection = () => {
               className="flex flex-col sm:flex-row gap-4"
             >
               <a href="https://cal.com/biteyc/30mins" target="_blank" rel="noopener noreferrer">
-                <Button variant="hero" size="lg" className="w-full sm:w-auto">
+                <MagneticButton variant="hero" size="lg" className="w-full sm:w-auto">
                   Schedule Free Consultation
                   <ArrowRight className="w-5 h-5" />
-                </Button>
+                </MagneticButton>
               </a>
               <a href="https://wa.me/918433299471" target="_blank" rel="noopener noreferrer">
-                <Button variant="hero-outline" size="lg" className="w-full sm:w-auto">
+                <MagneticButton variant="hero-outline" size="lg" className="w-full sm:w-auto">
                   <MessageCircle className="w-5 h-5" />
                   Chat on WhatsApp
-                </Button>
+                </MagneticButton>
               </a>
             </motion.div>
 
