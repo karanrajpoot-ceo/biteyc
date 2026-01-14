@@ -370,13 +370,13 @@ const About = () => {
                   <span>+91 84332 99471</span>
                 </a>
                 <a 
-                  href="mailto:hello.biteyc@gmail.com" 
+                  href="mailto:info@biteyc.site" 
                   className="flex items-center gap-4 text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
                   <div className="w-12 h-12 rounded-full bg-primary-foreground/10 flex items-center justify-center">
                     <Mail className="w-5 h-5" />
                   </div>
-                  <span>hello.biteyc@gmail.com</span>
+                  <span>info@biteyc.site</span>
                 </a>
                 <a 
                   href="https://instagram.com/karanrajpoot.me" 
