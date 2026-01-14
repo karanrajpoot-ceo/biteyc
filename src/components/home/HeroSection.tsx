@@ -105,12 +105,17 @@ export const HeroSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]">
-              {/* Paintbrush Frame Background */}
-              <img
+            <div className="relative min-h-[300px] sm:min-h-[400px] lg:min-h-[500px] group">
+              {/* Paintbrush Frame Background with hover animation */}
+              <motion.img
                 src={heroFrame}
                 alt=""
-                className="absolute inset-0 w-full h-full object-contain scale-125 -z-10"
+                className="absolute -inset-8 w-[calc(100%+64px)] h-[calc(100%+64px)] object-contain pointer-events-none"
+                initial={{ rotate: 0 }}
+                whileHover={{ rotate: 3, scale: 1.05 }}
+                animate={{ rotate: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                style={{ zIndex: -1 }}
               />
               <img
                 src={heroRobot}

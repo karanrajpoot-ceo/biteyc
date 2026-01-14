@@ -28,7 +28,7 @@ const socialLinks = [
   { icon: Instagram, href: 'https://instagram.com/karanrajpoot.me', label: 'Instagram' },
   { icon: MessageCircle, href: 'https://wa.me/918433299471', label: 'WhatsApp' },
   { icon: Linkedin, href: 'https://www.threads.com/@karanrajpoot.me', label: 'Threads' },
-  { icon: Mail, href: 'mailto:hello.biteyc@gmail.com', label: 'Email' },
+  { icon: Mail, href: 'mailto:info@biteyc.site', label: 'Email' },
 ];
 
 export const Footer = () => {
@@ -150,8 +150,8 @@ export const Footer = () => {
             </a>
             <span className="mx-2">•</span>
             <Mail className="w-4 h-4" />
-            <a href="mailto:hello.biteyc@gmail.com" className="hover:text-background transition-colors">
-              hello.biteyc@gmail.com
+            <a href="mailto:info@biteyc.site" className="hover:text-background transition-colors">
+              info@biteyc.site
             </a>
           </div>
         </div>
